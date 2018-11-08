@@ -134,7 +134,7 @@ public class MusicService extends Service implements
 
         Notification.Builder builder = new Notification.Builder(this);
 
-        Notification.Builder builder1 = builder.setContentIntent(pendInt)
+        builder.setContentIntent(pendInt)
                 .setSmallIcon(R.drawable.play)
                 .setTicker(songTitle)
                 .setOngoing(true)
@@ -172,6 +172,7 @@ public class MusicService extends Service implements
         if(songPosn<0) songPosn=songs.size()-1;
         playSong();
     }
+
     //skip to next
     public void playNext(){
         if(shuffle){
@@ -187,6 +188,7 @@ public class MusicService extends Service implements
         }
         playSong();
     }
+
     @Override
     public void onDestroy() {
         stopForeground(true);

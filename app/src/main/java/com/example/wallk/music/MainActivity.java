@@ -1,6 +1,5 @@
 package com.example.wallk.music;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -26,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class MainActivity extends Activity implements MediaPlayerControl {
+public class MainActivity extends AppCompatActivity implements MediaPlayerControl {
     private ArrayList<Song> songList;
     private ListView songView;
     private MusicService musicSrv;
@@ -115,6 +114,7 @@ public class MainActivity extends Activity implements MediaPlayerControl {
                 playbackPaused=false;
             }
             controller.show(0);
+            playbackPaused=true;
         }
 
     @Override
@@ -141,7 +141,6 @@ public class MainActivity extends Activity implements MediaPlayerControl {
         super.onDestroy();
     }
 
-    //play next
     private void playNext(){
         musicSrv.playNext();
         if(playbackPaused){
@@ -151,7 +150,6 @@ public class MainActivity extends Activity implements MediaPlayerControl {
         controller.show(0);
     }
 
-    //play previous
     private void playPrev(){
         musicSrv.playPrev();
         if(playbackPaused){
@@ -163,14 +161,14 @@ public class MainActivity extends Activity implements MediaPlayerControl {
 
     private void setController(){
         //set the controller up
+
         controller = new MusicController(this);
-        controller.setPrevNextListeners(
-                new View.OnClickListener() {
+        controller.setPrevNextListeners(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 playNext();
             }
-        },      new View.OnClickListener() {
+        }, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 playPrev();
@@ -179,6 +177,7 @@ public class MainActivity extends Activity implements MediaPlayerControl {
         controller.setMediaPlayer(this);
         controller.setAnchorView(findViewById(R.id.song_list));
         controller.setEnabled(true);
+
     }
 
     @Override
@@ -194,14 +193,17 @@ public class MainActivity extends Activity implements MediaPlayerControl {
 
     @Override
     public int getDuration() {
-        if(musicSrv!=null &&musicBound && musicSrv.isPng())
-        return musicSrv.getDur();
+        if(musicSrv!=null && musicBound && musicSrv.isPng())
+            return musicSrv.getDur();
         else return 0;
     }
 
     @Override
     public int getCurrentPosition() {
-        return 0;
+        if(musicSrv!=null && musicBound && musicSrv.isPng())
+            return musicSrv.getPosn();
+        else
+            return 0;
     }
 
     @Override
@@ -263,6 +265,19 @@ public class MainActivity extends Activity implements MediaPlayerControl {
     protected void onStop() {
         controller.hide();
         super.onStop();
+    }
+    @Override
+
+    public void onBackPressed() {
+
+        Intent i=new Intent(getBaseContext(),com.example.wallk.music.MainActivity.class);
+
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        startActivity(i);
+
+        super.onBackPressed();
+
     }
 
 }
