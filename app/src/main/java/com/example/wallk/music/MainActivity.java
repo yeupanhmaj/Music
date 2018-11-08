@@ -217,14 +217,17 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
 
     @Override
     public int getDuration() {
-        if(musicSrv!=null &&musicBound && musicSrv.isPng())
+        if(musicSrv!=null && musicBound && musicSrv.isPng())
         return musicSrv.getDur();
         else return 0;
     }
 
     @Override
     public int getCurrentPosition() {
-        return 0;
+        if(musicSrv!=null && musicBound && musicSrv.isPng())
+            return musicSrv.getPosn();
+        else
+            return 0;
     }
 
     @Override
@@ -261,10 +264,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
 
     @Override
     public int getAudioSessionId() {
-        if(musicSrv!=null && musicBound && musicSrv.isPng())
-            return musicSrv.getPosn();
-        else
-            return 0;
+        return 0;
     }
 
     @Override
