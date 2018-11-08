@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
 
     @Override
     protected void onDestroy() {
+        if (musicBound) unbindService(musicConnection); // blogger missed this
         stopService(playIntent);
         musicSrv=null;
         super.onDestroy();
