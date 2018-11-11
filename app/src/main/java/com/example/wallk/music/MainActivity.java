@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
     private ListView songView;
     private MusicService musicSrv;
     private Intent playIntent;
-    private boolean musicBound=false;
+    private boolean musicBound = false;
     private MusicController controller;
-    private boolean paused=false, playbackPaused=false;
+    private boolean paused = false, playbackPaused = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +82,29 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
         }
     }
 
+ /*   public void getSongList() {
+        //retrieve song info
+        ContentResolver musicResolver = getContentResolver();
+        Uri musicUri = android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+        Cursor musicCursor = musicResolver.query(musicUri, null, null, null, null);
+        if(musicCursor!=null && musicCursor.moveToFirst()){
+            //get columns
+            int titleColumn = musicCursor.getColumnIndex
+                    (android.provider.MediaStore.Audio.Media.TITLE);
+            int idColumn = musicCursor.getColumnIndex
+                    (android.provider.MediaStore.Audio.Media._ID);
+            int artistColumn = musicCursor.getColumnIndex
+                    (android.provider.MediaStore.Audio.Media.ARTIST);
+            //add songs to list
+            do {
+                long thisId = musicCursor.getLong(idColumn);
+                String thisTitle = musicCursor.getString(titleColumn);
+                String thisArtist = musicCursor.getString(artistColumn);
+                songList.add(new Song(thisId, thisTitle, thisArtist));
+            }
+            while (musicCursor.moveToNext());
+        }
+    }*/
     public void getSongList() {
         //retrieve song info
         ContentResolver musicResolver = getContentResolver();
@@ -105,7 +128,6 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
             while (musicCursor.moveToNext());
         }
     }
-
         public void songPicked(View view){
             musicSrv.setSong(Integer.parseInt(view.getTag().toString()));
             musicSrv.playSong();
@@ -136,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
 
     @Override
     protected void onDestroy() {
+        if (musicBound) unbindService(musicConnection); // blogger missed this
         stopService(playIntent);
         musicSrv=null;
         super.onDestroy();
@@ -194,7 +217,9 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
     @Override
     public int getDuration() {
         if(musicSrv!=null && musicBound && musicSrv.isPng())
+
             return musicSrv.getDur();
+//        return musicSrv.getDur();
         else return 0;
     }
 
@@ -240,10 +265,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
 
     @Override
     public int getAudioSessionId() {
-        if(musicSrv!=null && musicBound && musicSrv.isPng())
-            return musicSrv.getPosn();
-        else
-            return 0;
+        return 0;
     }
 
     @Override
