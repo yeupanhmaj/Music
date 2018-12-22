@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.yogi.wallk">
+    package="com.example.yogi.yomusic">
 
     <!-- Normal Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.example.yogi.wallk.MyApplication"
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.example.yogi.wallk.activity.PermissionRequestActivity"
+            android:name=".activity.PermissionRequestActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -29,23 +29,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.yogi.wallk.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name="com.example.yogi.wallk.activity.Secondary_Activity"
+        <activity android:name=".activity.Secondary_Activity"
                   android:launchMode="singleTask"
                   android:screenOrientation="portrait"/>
 
-        <activity android:name="com.example.yogi.wallk.activity.NowPlayingActivity"
+        <activity android:name=".activity.NowPlayingActivity"
                   android:launchMode="singleTask"
                   android:screenOrientation="portrait">
 
         </activity>
 
         <service
-            android:name="com.example.yogi.wallk.service.MediaPlayerService"
+            android:name=".service.MediaPlayerService"
             android:enabled="true"
             android:exported="true" />
 
