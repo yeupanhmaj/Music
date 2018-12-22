@@ -88,7 +88,6 @@ public class MusicService extends Service implements
             Log.e("MUSIC SERVICE", "Error setting data source", e);
         }
         player.prepareAsync();
-
     }
 
     public void setSong(int songIndex){
