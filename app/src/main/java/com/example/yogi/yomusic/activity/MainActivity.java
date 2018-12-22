@@ -48,6 +48,9 @@ import com.example.yogi.yomusic.model.Constants;
 import com.example.yogi.yomusic.service.MediaPlayerService;
 import com.example.yogi.yomusic.util.MusicLibrary;
 import com.example.yogi.yomusic.util.UIElementHelper.FontFactory;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +99,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        AppCenter.start(getApplication(), "e50460c1-e9d5-4685-a6be-a258cabbad71",
+                Analytics.class, Crashes.class);
 
         if(MyApplication.getService()== null)
         {
