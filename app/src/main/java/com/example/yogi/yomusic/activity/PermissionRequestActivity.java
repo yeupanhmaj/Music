@@ -30,8 +30,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by YOGI on 24-01-2018.
- */
+ YOGI
+ **/
 
 public class PermissionRequestActivity extends AppCompatActivity {
 
