@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1071595872995",
+    "firebase_url": "https://music-player-22674.firebaseio.com",
+    "project_id": "music-player-22674",
+    "storage_bucket": "music-player-22674.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071595872995:android:89d1df99c1e52362",
+        "android_client_info": {
+          "package_name": "com.example.yogi.yomusic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071595872995-b5vuar3uojn54ttodls8e8dsv7ggie6a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yogi.yomusic",
+            "certificate_hash": "d7523379a00ada0ef82ae0b7ce2de15e557b52f6"
+          }
+        },
+        {
+          "client_id": "1071595872995-ktuhbnt8m29kv2ndo9kivvsh1kopev80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsXy9pl1aE4TiDgQTslVNhSPE2rzmHVA0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071595872995-ktuhbnt8m29kv2ndo9kivvsh1kopev80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

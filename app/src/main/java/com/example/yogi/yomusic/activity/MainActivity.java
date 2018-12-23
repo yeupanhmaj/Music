@@ -51,6 +51,7 @@ import com.example.yogi.yomusic.util.UIElementHelper.FontFactory;
 import com.microsoft.appcenter.AppCenter;
 import com.microsoft.appcenter.analytics.Analytics;
 import com.microsoft.appcenter.crashes.Crashes;
+import com.microsoft.appcenter.push.Push;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         AppCenter.start(getApplication(), "e50460c1-e9d5-4685-a6be-a258cabbad71",
-                Analytics.class, Crashes.class);
+                Analytics.class, Crashes.class,Push.class);
 
         if(MyApplication.getService()== null)
         {
@@ -336,6 +337,7 @@ public class MainActivity extends AppCompatActivity
 
         if(id == R.id.action_settings)
         {
+
             return true;
         }
 

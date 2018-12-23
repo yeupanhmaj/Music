@@ -27,4 +27,6 @@
     <string name="notification_channel_id">channel_1</string>
     <string name="channel_name">YoMusic_CH_1</string>
     <string name="channel_description">For YOMusic Channel - 1</string>
+    <string name="fcm_message">fcm_message</string>
+    <string name="default_notification_channel_id">default_notification_channel_id</string>
 </resources>
