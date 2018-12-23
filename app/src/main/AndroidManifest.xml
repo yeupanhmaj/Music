@@ -33,62 +33,27 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".activity.Secondary_Activity"
-                  android:launchMode="singleTask"
-                  android:screenOrientation="portrait"/>
-
-        <activity android:name=".activity.NowPlayingActivity"
-                  android:launchMode="singleTask"
-                  android:screenOrientation="portrait">
-
-        </activity>
+        <activity
+            android:name=".activity.Secondary_Activity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.NowPlayingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
 
         <service
             android:name=".service.MediaPlayerService"
             android:enabled="true"
             android:exported="true" />
 
-        <receiver android:name="android.support.v4.media.session.MediaButtonReceiver" >
+        <receiver android:name="android.support.v4.media.session.MediaButtonReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
             </intent-filter>
         </receiver>
 
-        <!--
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <data android:scheme="file"/>
-            <data android:mimeType="audio/*"/>
-            <data android:mimeType="application/ogg"/>
-            <data android:mimeType="application/x-ogg"/>
-            <data android:mimeType="application/itunes"/>
-        </intent-filter>
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="http" />
-            <data android:mimeType="audio/*"/>
-            <data android:mimeType="application/ogg"/>
-            <data android:mimeType="application/x-ogg"/>
-            <data android:mimeType="application/itunes"/>
-        </intent-filter>
-        <intent-filter
-            android:priority="-1">
-            <action android:name="android.intent.action.VIEW" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="content" />
-            <data android:mimeType="audio/*"/>
-            <data android:mimeType="application/ogg"/>
-            <data android:mimeType="application/x-ogg"/>
-            <data android:mimeType="application/itunes"/>
-        </intent-filter>
-        -->
-
-
+        <!--<activity android:name=".activity.Crash"></activity>-->
     </application>
 
 </manifest>
